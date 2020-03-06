@@ -53,8 +53,8 @@ class Canvas extends Component {
 
       const storage = firebase.storage();
       url = url.substring(22);
-      var a = Math.floor(Math.random() * 101);
-      const storageRef = storage.ref().child(`test/${a}`);
+      // var a = Math.floor(Math.random() * 101);
+      const storageRef = storage.ref().child(`test/${10}`);
       const handleTwitter = this.props.handleTwitter;
       storageRef.putString(url, "base64").then(function(snapshot) {
         storageRef.getDownloadURL().then(function(url) {

@@ -63,7 +63,7 @@ function App() {
   const [svg, setSvg] = useState("");
   const [url, setUrl] = useState("");
   const [twitter, setTwitter] = useState(
-    "https://firebasestorage.googleapis.com/v0/b/design-chart.appspot.com/o/test%2F81?alt=media&token=8b63449b-25b2-4700-91b9-3d43778bd9f9"
+    "https://firebasestorage.googleapis.com/v0/b/design-chart.appspot.com/o/test%2F10?alt=media&token=78e37d31-502d-4792-8fe8-a27af70b4a87"
   );
 
   const classes = useStyles();
@@ -106,12 +106,12 @@ function App() {
 
         <meta
           property="og:url"
-          content={"https://d00fy.github.io/hosting-react/"}
+          content={"https://release-react.firebaseapp.com"}
         />
         <meta property="og:type" content={"website"} />
         <meta property="og:site_name" content={"UIUX"} />
         <meta property="og:image" content={twitter} />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content={`@uchibashi`} />
       </Helmet>
       <div className="App">
@@ -232,7 +232,7 @@ function App() {
           <TwitterShareButton
             title="6個の項目を入力し、デザイナーとしてのあなたの適性を自己評価！"
             via="uchibashi"
-            url="https://d00fy.github.io/hosting-react/#本物のデザイナー"
+            url="https://release-react.firebaseapp.com/#本物のデザイナー"
           >
             <TwitterIcon size={32} round />
           </TwitterShareButton>
@@ -336,7 +336,7 @@ function App() {
           <TwitterShareButton
             title="6個の項目を入力し、デザイナーとしてのあなたの適性を自己評価！"
             via="uchibashi"
-            url="https://d00fy.github.io/hosting-react/#本物のデザイナー"
+            url="https://release-react.firebaseapp.com/#本物のデザイナー"
           >
             <TwitterIcon size={32} round />
           </TwitterShareButton>
