@@ -1,9 +1,9 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyAd-0OVW3dSmnTMOP0g2mRkfH5XkwaZn-M",
-  authDomain: "release-react.firebaseapp.com",
-  databaseURL: "https://release-react.firebaseio.com",
-  projectId: "release-react",
-  storageBucket: "release-react.appspot.com",
-  messagingSenderId: "504194421622",
-  appId: "1:504194421622:web:9d695c04cfe9995f622057"
+  apiKey: "AIzaSyAA4NTIsl_7RAAlW5wFPbkumIkKuJe2KK4",
+  authDomain: "design-chart.firebaseapp.com",
+  databaseURL: "https://design-chart.firebaseio.com",
+  projectId: "design-chart",
+  storageBucket: "design-chart.appspot.com",
+  messagingSenderId: "103306183299",
+  appId: "1:103306183299:web:b7ca18e53b833942ded1b6"
 };
