@@ -1,6 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+//
+import firebase from "firebase";
+import { firebaseConfig } from "./firebase-config";
+firebase.initializeApp(firebaseConfig);
+
+const storage = firebase.storage();
+const storageRef = storage.ref();
+const downRef = storageRef.child("03_Ghibli_2880x1800_7.jpg");
+console.log(downRef);
+//
 
 function App() {
   return (
@@ -16,7 +27,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React!!!
         </a>
       </header>
     </div>
