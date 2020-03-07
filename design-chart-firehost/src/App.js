@@ -13,10 +13,13 @@ import Slider from "@material-ui/core/Slider";
 import { TwitterShareButton, TwitterIcon } from "react-share";
 import MediaQuery from "react-responsive";
 
+import ElevateAppBar from "./parts/elevateAppBar";
+import TextField from "@material-ui/core/TextField";
+
 //----------------スライダー関連
 const useStyles = makeStyles(theme => ({
   root: {
-    width: 200,
+    width: 160,
     margin: "auto"
   },
   margin: {
@@ -28,6 +31,7 @@ const marks = [
     value: 0
   }
 ];
+
 const divStyle = {
   overflowY: "scroll",
   border: "1px solid grey",
@@ -41,13 +45,14 @@ const divStyle = {
 
 const divMinStyle = {
   overflowY: "scroll",
-  border: "1px solid grey",
-  borderRadius: "3px",
-  width: "300px",
-  height: "200px",
-  margin: "auto",
-  marginBottom: "20px",
-  paddingTop: "10px"
+  width: "80%",
+  height: "400px",
+  margin: " auto",
+  // paddingTop: "10px",
+  padding: "1em 1em",
+  boxSizing: "border-box",
+  boxShadow: "1px 1px 5px 1px #999",
+  backGroudCalor: "#FFFFFF"
 };
 
 //-------------------------------スライダー関連
@@ -115,6 +120,7 @@ function App() {
         <meta name="twitter:site" content={`@uchibashi`} />
       </Helmet>
       <div className="App">
+        <ElevateAppBar />
         <TwoLevelPieChart
           id="testes"
           eye={eye}
@@ -126,9 +132,14 @@ function App() {
           name={name}
           val={handleSvg}
         />
+        <div
+          style={{
+            marginBottom: "12px"
+          }}
+        ></div>
 
         {/* //--------------------- スライダー関連*/}
-        {/* <div style={centerStyle}> */}
+        {/* <div style={centerStyle}>*/}
         <MediaQuery query="(min-width: 768px)">
           <div style={divStyle}>
             <div className={classes.root}>
@@ -237,22 +248,23 @@ function App() {
             <TwitterIcon size={32} round />
           </TwitterShareButton>
         </MediaQuery>
-        {/* メディアクエリ分岐 */}
+        {/* メディアクエリ分岐  スマホ */}
         <MediaQuery query="(max-width: 767px)">
           <div style={divMinStyle}>
             <div className={classes.root}>
-              <label>
-                Name:
-                <input
-                  type="text"
+              <form className={classes.root} noValidate autoComplete="off">
+                <TextField
+                  id="standard-basic"
+                  label="Name"
                   name="name"
                   value={name}
                   onChange={handleChange}
+                  style={{ margin: "8px" }}
                 />
-              </label>
+              </form>
 
               <Typography id="discrete-slider-custom" gutterBottom>
-                目：美しいものがわかる
+                目：美しいものを見分ける
               </Typography>
               <Slider
                 defaultValue={eye}
@@ -261,7 +273,7 @@ function App() {
                   eyeCount(value);
                 }}
                 aria-labelledby="discrete-slider-custom"
-                step={1}
+                step={20}
                 marks={marks}
               />
               <Typography id="discrete-slider-custom" gutterBottom>
@@ -274,7 +286,7 @@ function App() {
                   handCount(value);
                 }}
                 aria-labelledby="discrete-slider-custom"
-                step={1}
+                step={20}
                 marks={marks}
               />
               <Typography id="discrete-slider-custom" gutterBottom>
@@ -287,11 +299,11 @@ function App() {
                   headCount(value);
                 }}
                 aria-labelledby="discrete-slider-custom"
-                step={1}
+                step={20}
                 marks={marks}
               />
               <Typography id="discrete-slider-custom" gutterBottom>
-                口：思ったことを伝えられる
+                口：思った事を伝えられる
               </Typography>
               <Slider
                 defaultValue={mouse}
@@ -300,7 +312,7 @@ function App() {
                   mouseCount(value);
                 }}
                 aria-labelledby="discrete-slider-custom"
-                step={1}
+                step={20}
                 marks={marks}
               />
               <Typography id="discrete-slider-custom" gutterBottom>
@@ -313,7 +325,7 @@ function App() {
                   legCount(value);
                 }}
                 aria-labelledby="discrete-slider-custom"
-                step={1}
+                step={20}
                 marks={marks}
               />
               <Typography id="discrete-slider-custom" gutterBottom>
@@ -326,19 +338,31 @@ function App() {
                   mentalCount(value);
                 }}
                 aria-labelledby="discrete-slider-custom"
-                step={1}
+                step={20}
                 marks={marks}
               />
             </div>
+            <Canvas svg={svg} name={name} val={handleUrl} />
           </div>
-          {/* </div> */}
-          <Canvas svg={svg} name={name} val={handleUrl} />
+          <p style={{ fontColor: "#DCDCDC" }}>
+            iOS"safari"をお使いの方は、DLできません。
+            <br />
+            PCかChrome/Brave等にて保存していただけると幸いです！
+          </p>
           <TwitterShareButton
+            style={{
+              margin: 0,
+              top: "auto",
+              right: 20,
+              bottom: 20,
+              left: "auto",
+              position: "fixed"
+            }}
             title="6個の項目を入力し、デザイナーとしてのあなたの適性を自己評価！"
             via="uchibashi"
             url="https://release-react.firebaseapp.com/#本物のデザイナー"
           >
-            <TwitterIcon size={32} round />
+            <TwitterIcon size={48} round />
           </TwitterShareButton>
         </MediaQuery>
       </div>

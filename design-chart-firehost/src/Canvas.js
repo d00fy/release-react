@@ -28,8 +28,6 @@ class Canvas extends Component {
   getContext() {
     return this.refs.canvas.getContext("2d");
   }
-  //   ctx = this.getContext();
-  //   image = new Image();
 
   test() {
     const ctx = this.getContext();
@@ -40,10 +38,11 @@ class Canvas extends Component {
 
     image.onload = () => {
       // SVGデータをPNG形式に変換する
-      ctx.font = "24px serif";
       ctx.textBaseline = "hanging";
       ctx.drawImage(image, 0, 0, image.width, image.height);
-      ctx.fillText(this.props.name, 40, 50);
+      ctx.font = "18px serif";
+      ctx.textAlign = "center";
+      ctx.fillText(this.props.name, 150, 32);
 
       var canvas = document.getElementById("canvas");
       var url = canvas.toDataURL();
@@ -66,12 +65,6 @@ class Canvas extends Component {
     };
   }
 
-  //   shouldComponentUpdate(nextProps) {
-  //     if (this.props.svg !== nextProps) {
-  //       this.test();
-  //     }
-  //   }
-
   render() {
     return (
       <>
@@ -91,7 +84,7 @@ class Canvas extends Component {
           <canvas
             id="canvas"
             ref="canvas"
-            width="375px"
+            width="300px"
             height="300px"
             onMouseUp={() => {
               // this.test();
@@ -105,8 +98,7 @@ class Canvas extends Component {
             variant="contained"
             onClick={() => {
               this.test();
-
-              alert("done!!!!");
+              // alert("done!!!!");
             }}
           >
             画像を生成
@@ -125,9 +117,6 @@ class Canvas extends Component {
               ダウンロード
             </a>
           </Button>
-          <p>
-            ※スマートフォンのSafariだとダウンロードできない場合がございます。
-          </p>
         </div>
       </>
     );

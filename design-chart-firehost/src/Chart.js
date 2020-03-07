@@ -5,7 +5,9 @@ import {
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
-  Legend
+  Legend,
+  LabelList,
+  Label
 } from "recharts";
 
 import MediaQuery from "react-responsive";
@@ -41,12 +43,12 @@ class TwoLevelPieChart extends React.Component {
             width={600}
             height={450}
             data={[
-              { subject: "目", A: this.props.eye, fullmark: 100 },
-              { subject: "手", A: this.props.hand, fullmark: 100 },
-              { subject: "頭", A: this.props.head, fullmark: 100 },
-              { subject: "口", A: this.props.mouse, fullmark: 100 },
-              { subject: "足", A: this.props.leg, fullmark: 100 },
-              { subject: "心", A: this.props.mental, fullmark: 100 }
+              { subject: "目", NoName: this.props.eye, fullmark: 100 },
+              { subject: "手", NoName: this.props.hand, fullmark: 100 },
+              { subject: "頭", NoName: this.props.head, fullmark: 100 },
+              { subject: "口", NoName: this.props.mouse, fullmark: 100 },
+              { subject: "足", NoName: this.props.leg, fullmark: 100 },
+              { subject: "心", NoName: this.props.mental, fullmark: 100 }
             ]}
           >
             <Legend
@@ -57,12 +59,12 @@ class TwoLevelPieChart extends React.Component {
                 marginTop: "24px"
               }}
             />
-            <PolarGrid />
+            <PolarGrid polarRadius={200} />
             <PolarAngleAxis dataKey="subject" />
             <PolarRadiusAxis angle={30} domain={[0, 100]} />
             <Radar
               name={this.props.name}
-              dataKey="A"
+              dataKey="NoName"
               stroke="#8884d8"
               fill="#8884d8"
               fillOpacity={0.6}
@@ -73,18 +75,19 @@ class TwoLevelPieChart extends React.Component {
           <RadarChart
             id="tes"
             className="App"
-            cx={188} //300
-            cy={180} //250
+            cx={150} //300 188
+            cy={180} //250 180
             outerRadius={100} //150
-            width={375}
-            height={300}
+            width={300} //375
+            height={300} //300
+            backgroundColor="beige"
             data={[
-              { subject: "目", A: this.props.eye, fullmark: 100 },
-              { subject: "手", A: this.props.hand, fullmark: 100 },
-              { subject: "頭", A: this.props.head, fullmark: 100 },
-              { subject: "口", A: this.props.mouse, fullmark: 100 },
-              { subject: "足", A: this.props.leg, fullmark: 100 },
-              { subject: "心", A: this.props.mental, fullmark: 100 }
+              { subject: "目", NoName: this.props.eye, fullmark: 100 },
+              { subject: "手", NoName: this.props.hand, fullmark: 100 },
+              { subject: "頭", NoName: this.props.head, fullmark: 100 },
+              { subject: "口", NoName: this.props.mouse, fullmark: 100 },
+              { subject: "足", NoName: this.props.leg, fullmark: 100 },
+              { subject: "心", NoName: this.props.mental, fullmark: 100 }
             ]}
           >
             <Legend
@@ -100,7 +103,7 @@ class TwoLevelPieChart extends React.Component {
             <PolarRadiusAxis angle={30} domain={[0, 100]} />
             <Radar
               name={this.props.name}
-              dataKey="A"
+              dataKey="NoName"
               stroke="#8884d8"
               fill="#8884d8"
               fillOpacity={0.6}
